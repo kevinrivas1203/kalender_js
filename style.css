@@ -1,0 +1,131 @@
+
+body {
+    background-image: url("https://p4.wallpaperbetter.com/wallpaper/888/269/100/african-savanna-desktop-background-wallpaper-preview.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 10px;
+    background-attachment: fixed;
+    
+  }
+
+h1 {
+    grid-area: Header;
+    text-align: center;
+    color: #1e3344;
+}
+
+p {
+    font-size: 20px;
+    color: #000000;
+}
+
+th {
+    background-color: #80862b;
+    color: rgb(0, 0, 0);
+}
+table {
+    background-color: aliceblue;
+    border-collapse: collapse;
+}
+
+#Kalender  {
+    cursor: pointer;
+    grid-area: Kalender;
+}
+
+th, td {  
+    font-size: 23px;  
+    border: 1px solid rgb(0, 0, 0);
+    padding: 12px;
+    text-align: center;
+}   
+td.WE_Sonntag {
+    background-color: #64813f;
+    color: rgb(245, 6, 6);
+}
+tr :hover {
+    background-color: #e95959;
+    color: #d8dfe7;
+}   
+td {
+    color: #070707;
+    cursor: pointer;
+}
+td.WE_Samstag {
+    color: rgb(109, 132, 233);
+}
+
+.container {
+    margin: 24px 0px; 
+    display: grid;
+    grid-template-areas:    "Header Header Header"
+                            "Intro Intro Intro"
+                            "Kalender History History"
+                            "Bild1 Bild2 Bild3"
+                            "Footer1 Footer Footer";
+    grid-template-columns: 1fr 0.85fr 1fr;
+    gap: 20px;
+    width: 100%;
+}
+
+#History {
+    font-size: 20px;
+    grid-area: History;
+}
+
+.Monat {
+    display: grid;
+    grid-template-columns: min-content auto min-content;
+}
+
+#Intro {
+    grid-area: Intro ;
+    text-align: center;
+}
+
+#Image1 {
+    grid-area: Bild1;
+}
+
+#Image2 {
+    grid-area: Bild2;
+}
+
+#Image3 {
+    display: flex;
+    grid-area: Bild3;
+}
+
+#Kalender table {
+    width: 100%;
+}
+
+.Image :hover {
+    cursor: pointer;
+    transition-duration: all , 0.5s;
+    filter:brightness(150%);
+    width: 100%;
+}
+
+.Image img {
+    border-style: solid;
+    width: 100%;
+}
+footer {
+    grid-area: Footer1;     
+    background-color: #ffffff;
+    text-align: left;
+    color: #8f9593;
+    margin-top: 20px;
+    font-size: 15px;
+    padding: 20px;
+    opacity: 0.9;
+}
+.today {
+    background-color: orange;
+}
+.button {
+    width: 30px;
+    height: 30px;   
+    border-radius: 50%;
+}
