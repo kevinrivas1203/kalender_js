@@ -1,11 +1,12 @@
 
-const weekdays =["So" ,"Mo" ,"Di" ,"Mi" ,"Do" ,"Fr" ,"Sa"]
-const today = new Date();
+let username = "Anna";
+let title = document.getElementById ("Title")
+title.textContent = "Kalender J-    S"
+console.log(title);
 
 
-const day = today.getDate();
-const month = today.getMonth();
-const year = today.getFullYear();
-const weekday = today.getDay();
+let headline = document.getElementById ("main-headline");
+headline.textContent = "Kalender JS"
+console.log(headline);
 
-console.log(weekdays[weekday]);
+let 
