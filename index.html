@@ -12,7 +12,7 @@
     <div class="container">
         <h1 id="main-headline">Kalender von 10.02.2026</h1>
         <div id="Intro">
-            <p>10. Februar ist ein Dienstag und zwar der erste dienstag im Monat Februar des Jahres 2025.</p>
+            <p id="infotext">10. Februar ist ein Dienstag und zwar der erste dienstag im Monat Februar des Jahres 2025.</p>
         </div>
         <div id="Kalender">
             <table class="kalender"><!--wenn ich eine classe erstelle darf keine leerzeichen sein. 
@@ -25,6 +25,15 @@
                                     <button>&lt;</button>
                                 </div>
                                 <div>Februar</div>
+                                <div>
+                                    <button>Jahr
+                                        <select>
+                                            <option>2024</option>
+                                            <option>2025</option>
+                                            <option>2026</option>
+                                        </select>
+                                        </button>
+                                </div>
                                 <div>
                                     <button>&gt;</button>
                                 </div>
@@ -135,7 +144,7 @@
         <footer>
             Mein Kalender 2026@<br>
             kevin Rivas Vega<br>
-        </footer>^
+        </footer>
     </div>
     <script src="app.js"></script>
 </body>
