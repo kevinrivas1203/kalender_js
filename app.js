@@ -12,3 +12,7 @@ console.log(headline);
  let infotext = document.getElementById ("infotext");
  infotext.textContent = "ashcajksc"
 console.log (infotext);
+ 
+let monat = document.getElementById ("monat");
+monat.textContent ="Marz"
+console.log (monat)
