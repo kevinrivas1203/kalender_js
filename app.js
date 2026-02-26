@@ -12,17 +12,17 @@ console.log(headline);
  let infotext = document.getElementById ("infotext");
 //  infotext.textContent = "10.Februar ashcajkssdfadffdfdf"
 console.log (infotext);
- 
+// Kann die Monat in kalender änder 
 let monat = document.getElementById ("monat");
-monat.textContent ="Marz"
+monat.textContent ="Februar"
 console.log (monat)
 
 let datum = document.getElementsByClassName ("datum");
-// console.log(datum)
 for(let i = 0; i < datum.length; i++){
-    datum[i].textContent = "Manfred"
+    datum[i].textContent = "1 "
 }
-console.log (datum)
+// button Monat Zurück
+const monatZuruck = document.getElementById ("monatZuruck");
+monatZuruck.textContent
 
-// [tag1]
-//  0     1     2
+
