@@ -34,7 +34,6 @@ table {
 }
 
 th, td {  
-   
     font-size: 23px;  
     border: 1px solid rgb(0, 0, 0);
     padding: 12px;
@@ -44,13 +43,14 @@ td.WE_Sonntag {
     background-color: #64813f;
     color: rgb(245, 6, 6);
 }
-tr :hover {
+.kalender tr td:not(:empty):hover {
     background-color: #e95959;
     color: #d8dfe7;
+    cursor: pointer
 }   
 td {
     color: #070707;
-    cursor: pointer;
+   
 }
 td.WE_Samstag {
     color: rgb(109, 132, 233);
