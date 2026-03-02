@@ -1,5 +1,5 @@
 
-let username = "Anna";
+
 let title = document.getElementById ("Title")
 title.textContent = "Kalender J-S"
 console.log(title);
@@ -23,6 +23,29 @@ for(let i = 0; i < datum.length; i++){
 }
 // button Monat Zurück
 const monatZuruck = document.getElementById ("monatZuruck");
-monatZuruck.textContent
+console.log(monatZuruck)
+
+// button nächte Monat 
+const nextMonth = document.getElementById ("nextMonth");
+console.log(nextMonth)
+// Aktuel Datum in Text
+function currently_day (){
+    const today = new Date ();
+    const option = {
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+    } ;  
+    const formattedDate = today.toLocaleDateString("de-DE", option);
+
+    document.getElementById("currently_day").textContent = "Der " + formattedDate;
+}
+setInterval(currently_day, 1000);
+currently_day()
 
 
+let date = new Date()
+console.log()
+let month = date.getMonth()
+let day = date.getDate();
+let year=date.getFullYear()
