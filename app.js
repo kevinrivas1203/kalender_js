@@ -5,9 +5,20 @@ title.textContent = "Kalender J-S"
 console.log(title);
 
 
-let headline = document.getElementById ("main-headline");
-headline.textContent = "Kalender JS"
-console.log(headline);
+// Diese funtion sincronizert die Datum von h1 
+function main_headline (){
+    const today = new Date ();
+    const option = {
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+    } ;  
+    const formattedDate = today.toLocaleDateString("de-DE", option);
+    document.getElementById("main_headline").textContent = formattedDate;
+}
+setInterval(main_headline, 1000);
+main_headline()
+console.log();
 
  let infotext = document.getElementById ("infotext");
 //  infotext.textContent = "10.Februar ashcajkssdfadffdfdf"
@@ -42,6 +53,7 @@ function currently_day (){
 }
 setInterval(currently_day, 1000);
 currently_day()
+// funktion button zurück
 
 
 let date = new Date()
