@@ -39,6 +39,20 @@ function currently_dayName (){
         }
 }
 currently_dayName()
+
+// alle text Monat aktuel
+function currentlyMonth () {
+    const today = new Date ();
+    const option ={
+        month: "long"
+    } ;
+    const formattedDate = today.toLocaleDateString("de-DE",option);
+    let nameMonths = document.getElementsByClassName ("nameMonth");
+        for(let element of nameMonths){
+            element.textContent=formattedDate;
+        }
+}
+currentlyMonth()
   
 // Kann die Monat in kalender änder 
 let monat = document.getElementById ("monat");
@@ -80,4 +94,4 @@ let date = new Date()
 console.log()
 let month = date.getMonth()
 let day = date.getDate();
-let year=date.getFullYear();
+let year=date.getFullYear(); 
