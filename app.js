@@ -23,6 +23,23 @@ console.log();
  let infotext = document.getElementById ("infotext");
 //  infotext.textContent = "10.Februar ashcajkssdfadffdfdf"
 console.log (infotext);
+
+// alle Tag wird aktuel
+function currently_dayName (){
+    const today = new Date ();
+    const option = {
+        weekday: "long",
+    } ;
+    
+    const formattedDate  = today.toLocaleDateString("de-DE", option);
+      
+    let nameWeeks = document.getElementsByClassName("nameWeek");
+        for(let element of nameWeeks){
+            element.textContent = formattedDate;
+        }
+}
+currently_dayName()
+  
 // Kann die Monat in kalender änder 
 let monat = document.getElementById ("monat");
 monat.textContent ="Februar"
@@ -36,7 +53,7 @@ for(let i = 0; i < datum.length; i++){
 const monatZuruck = document.getElementById ("monatZuruck");
 console.log(monatZuruck)
 
-// button nächte Monat 
+// button nächte Monat und zuruck
 const nextMonth = document.getElementById ("nextMonth");
 console.log(nextMonth)
 // Aktuel Datum in Text
@@ -53,11 +70,14 @@ function currently_day (){
 }
 setInterval(currently_day, 1000);
 currently_day()
-// funktion button zurück
+//Komplet Kalender Dynamisch
+let tableKalender = document.getElementById("Kalender");
+console.log(tableKalender)
+
 
 
 let date = new Date()
 console.log()
 let month = date.getMonth()
 let day = date.getDate();
-let year=date.getFullYear()
+let year=date.getFullYear();
