@@ -52,8 +52,28 @@ function currentlyMonth () {
             element.textContent=formattedDate;
         }
 }
-currentlyMonth()
-  
+currentlyMonth()   
+//aktuel Tag un rest tag
+function getDayOfYear(date = new Date()) {
+  const inicio = new Date(date.getFullYear(), 0, 0);
+  const diferencia = date - inicio;
+  const unDia = 1000 * 60 * 60 * 24;
+  return Math.floor(diferencia / unDia);
+}
+
+function getRestDaysOfYear(date = new Date()) {
+  const fin = new Date(date.getFullYear(), 11, 31);
+  const diferencia = fin - date;
+  const unDia = 1000 * 60 * 60 * 24;
+  return Math.ceil(diferencia / unDia);
+}
+
+const diaDelAño = getDayOfYear();
+const diasRestantes = getRestDaysOfYear();
+
+document.getElementById("days_of_year").textContent = diaDelAño;
+document.getElementById("rest_days_of_year").textContent = diasRestantes;
+
 // Kann die Monat in kalender änder 
 let monat = document.getElementById ("monat");
 monat.textContent ="Februar"
