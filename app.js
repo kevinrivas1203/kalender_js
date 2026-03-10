@@ -4,12 +4,24 @@ let title = document.getElementById ("Title")
 title.textContent = "Kalender J-S"
 console.log(title);
 
-let today = new Date();
+let currentDate = new Date();
 const monatInCalender = ["Januar","Februar","März","April","Mai","Juni","Juli","August","September","Oktober","November","Dezember"];
 
 
 //-----------------------------RENDER-----------------------------------------------
 
+function renderText(){
+    createCurrentlyDay();
+    createWeekName();
+    createCurrentlyMonthName();
+    calculateAndRenderDaysInYear();
+}
+
+function renderPage(){
+    renderKalenderTitel();
+    renderText();
+    renderKalender();
+}
 
 
 // Diese funtion sincronizert die Datum von h1 
@@ -19,20 +31,19 @@ function renderKalenderTitel (){
         month: "long",
         year: "numeric",
     } ;  
-    const formattedDate = today.toLocaleDateString("de-DE", option);
+    const formattedDate = currentDate.toLocaleDateString("de-DE", option);
     document.getElementById("main_headline").textContent = formattedDate;
 }
 
 
 // Aktuel Datum in Text
 function createCurrentlyDay() {
-    // const today = new Date ();
     const option = {
         day: "numeric",
         month: "long",
         year: "numeric",
     } ;  
-    const formattedDate = today.toLocaleDateString("de-DE", option);
+    const formattedDate = currentDate.toLocaleDateString("de-DE", option);
     
     let elements = document.getElementsByClassName("currently_day");
     
@@ -43,12 +54,11 @@ function createCurrentlyDay() {
 
 // alle Tag wird aktuel
 function createWeekName() {
-    // const today = new Date ();
     const option = {
         weekday: "long",
     } ;
     
-    const formattedDate  = today.toLocaleDateString("de-DE", option);
+    const formattedDate  = currentDate.toLocaleDateString("de-DE", option);
     
     let nameWeeks = document.getElementsByClassName("nameWeek");
     for(let element of nameWeeks){
@@ -58,11 +68,10 @@ function createWeekName() {
 
 // alle text Monat aktuel
 function createCurrentlyMonthName() {
-    // const today = new Date ();
     const option ={
         month: "long"
     } ;
-    const formattedDate = today.toLocaleDateString("de-DE",option);
+    const formattedDate = currentDate.toLocaleDateString("de-DE",option);
     let nameMonths = document.getElementsByClassName ("nameMonth");
     for(let element of nameMonths){
         element.textContent=formattedDate;
@@ -88,32 +97,29 @@ function calculateAndRenderDaysInYear(){
     document.getElementById("rest_days_of_year").textContent = getRestDaysOfYear();
 }
 
-function renderText(){
-    createCurrentlyDay();
-    createWeekName();
-    createCurrentlyMonthName();
-    calculateAndRenderDaysInYear();
-}
-
-function renderPage(){
-    renderKalenderTitel();
-    renderText();
-}
-
 
 function changeToNextMonth(){
-    today = new Date(today.getFullYear, today.getMonth +1, today.getDate);
+    currentDate = new Date(currentDate.getFullYear(), currentDate.getMonth() +1, currentDate.getDate());
     renderPage();
 }
-//Elements
-const nextMonth = document.getElementById ("nextMonth");
-nextMonth.onclick = changeToNextMonth();
 
-const monatZuruck = document.getElementById ("monatZuruck");
-console.log(monatZuruck)
+function changeToPreviousMonth(){
+    currentDate = new Date(currentDate.getFullYear(), currentDate.getMonth() -1, currentDate.getDate());
+    renderPage();
+}
 
-// button nächte Monat und zuruck
-console.log(nextMonth)
+function renderKalender(){
+    renderKalenderHeader();
+}
+
+function renderKalenderHeader(){
+    document.getElementById ("nextMonth").onclick = changeToNextMonth;
+
+    document.getElementById ("monatZuruck").onclick = changeToPreviousMonth;
+
+    document.getElementById('monat').innerText = monatInCalender[currentDate.getMonth()];
+}
+
 
 // Kann die Monat in kalender änder 
 // let monat = document.getElementById ("monat");
