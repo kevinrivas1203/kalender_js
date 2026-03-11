@@ -2,11 +2,12 @@
 
 let title = document.getElementById ("Title")
 title.textContent = "Kalender J-S"
-console.log(title);
+
 
 let currentDate = new Date();
 const monatInCalender = ["Januar","Februar","März","April","Mai","Juni","Juli","August","September","Oktober","November","Dezember"];
-
+const wocheTagen = ["Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"];
+const tagesNummer = [1] 
 
 //-----------------------------RENDER-----------------------------------------------
 
@@ -77,7 +78,7 @@ function createCurrentlyMonthName() {
         element.textContent=formattedDate;
     }
 }
-
+// rechnet die aktuel und rest Tage im Jahr
 function getDayOfYear(date = new Date()) {
     const inicio = new Date(date.getFullYear(), 0, 0);
     const diferencia = date - inicio;
@@ -97,7 +98,7 @@ function calculateAndRenderDaysInYear(){
     document.getElementById("rest_days_of_year").textContent = getRestDaysOfYear();
 }
 
-
+// Die button von Kalender ändern die Monat  
 function changeToNextMonth(){
     currentDate = new Date(currentDate.getFullYear(), currentDate.getMonth() +1, currentDate.getDate());
     renderPage();
@@ -107,6 +108,34 @@ function changeToPreviousMonth(){
     currentDate = new Date(currentDate.getFullYear(), currentDate.getMonth() -1, currentDate.getDate());
     renderPage();
 }
+
+// // Tages in Kalender wird dynamisch
+// function changeDayInCalender (){
+//     let dayInMonth = document.getElementById("daysInMonth");
+//     dayInMonth.innerHTML = ""; // ist Wichtig weil dann In Kalender leer und beim wechsel des Monat nicht überschreibt  
+    
+//     let firstDayMonth = new Date (year, month, 1).getDay();
+//     let lastDays = new Date (year, month + 1,0).getDate();
+    
+//     let row;
+//     for (let day = 1; day <=lastDays; day++){
+//         date = new Date(year, month, day);
+//         if(date.getDate() === 0 || day ===1){
+//             row = document.createElement("tr");
+//         }
+//         let cell = document.createElement("td");
+//         cell.innerHTML = day ;
+//         row.appendChild(cell);
+//         if(date.getDay() === 6 || day === lastDays){
+
+//         }
+//     }
+// }
+// changeDayInCalender ();
+
+
+
+
 
 function renderKalender(){
     renderKalenderHeader();
@@ -118,6 +147,18 @@ function renderKalenderHeader(){
     document.getElementById ("monatZuruck").onclick = changeToPreviousMonth;
 
     document.getElementById('monat').innerText = monatInCalender[currentDate.getMonth()];
+}
+
+function renderWocheTagen(){
+  let weekdays = document.getElementById("weekDays");
+  for (let i = 0; i< wocheTagen.length; i++){
+      console.log (i);
+  }
+}
+
+function renderKalenderTagen(){
+    let tagen
+
 }
 
 
@@ -146,7 +187,19 @@ document.getElementById("monatZuruck").addEventListener("click",function(){
 
 renderPage();
 
+/*• Grundsätzliche Idee, über die Ihr nachdenken solltet (alternative Ansätze sind 
+möglich):
+    o renderCalendarStart();
+     o Für jeden Tag von calendarStart bis calendarEnd
+        ▪ if (weekStart) renderWeekStart();
+        ▪ render Day();
+        ▪ if (weekEnd) renderWeekEnd();
+    o renderCalendarEnd()
+
+
+*/
 
 // let month = date.getMonth()
 // let day = date.getDate();
 // let year=date.getFullYear(); 
+ 
