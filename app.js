@@ -7,10 +7,11 @@ title.textContent = "Kalender J-S"
 let currentDate = new Date();
 const monatInCalender = ["Januar","Februar","März","April","Mai","Juni","Juli","August","September","Oktober","November","Dezember"];
 const wocheTagen = ["Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"];
-const tagesNummer = [1] 
-
+const tagesInCalender = document.querySelectorAll("tr.tagesNummer >td")
 //-----------------------------RENDER-----------------------------------------------
 
+renderWocheTagen()
+renderKalenderTagen()
 function renderText(){
     createCurrentlyDay();
     createWeekName();
@@ -152,16 +153,21 @@ function renderKalenderHeader(){
 function renderWocheTagen(){
   let weekdays = document.getElementById("weekDays");
   for (let i = 0; i< wocheTagen.length; i++){
-      console.log (i);
+      console.log (wocheTagen[i]);
   }
 }
 
+
+
 function renderKalenderTagen(){
-    let tagen
-
+   let tages = document.querySelectorAll("tr.tagesInCalender >td");
+   for (let i = 0; i<= tagesInCalender.length ;i++){
+    console.log(tagesInCalender)
+   }
 }
-
-
+// let numero = ("dias del mes");
+// for (let i = 1; i < 31 ; i++);
+ 
 // Kann die Monat in kalender änder 
 // let monat = document.getElementById ("monat");
 
@@ -176,7 +182,7 @@ function renderKalenderTagen(){
 // currently_day()
 //Komplet Kalender Dynamisch
 let tableKalender = document.getElementById("Kalender");
-console.log(tableKalender)
+// console.log(tableKalender)
 
 // Monat spring mit button
 // document.getElementById("monat").textContent = meses [];
@@ -187,17 +193,17 @@ document.getElementById("monatZuruck").addEventListener("click",function(){
 
 renderPage();
 
-/*• Grundsätzliche Idee, über die Ihr nachdenken solltet (alternative Ansätze sind 
-möglich):
-    o renderCalendarStart();
-     o Für jeden Tag von calendarStart bis calendarEnd
-        ▪ if (weekStart) renderWeekStart();
-        ▪ render Day();
-        ▪ if (weekEnd) renderWeekEnd();
-    o renderCalendarEnd()
+// / *• Grundsätzliche Idee, über die Ihr nachdenken solltet (alternative Ansätze sind 
+// möglich):
+//     o renderCalendarStart();
+//      o Für jeden Tag von calendarStart bis calendarEnd
+//         ▪ if (weekStart) renderWeekStart();
+//         ▪ render Day();
+//         ▪ if (weekEnd) renderWeekEnd();
+//     o renderCalendarEnd()
 
 
-*/
+// */
 
 // let month = date.getMonth()
 // let day = date.getDate();
