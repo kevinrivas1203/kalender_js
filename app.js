@@ -7,9 +7,8 @@ title.textContent = "Kalender J-S"
 let currentDate = new Date();
 const monatInCalender = ["Januar","Februar","März","April","Mai","Juni","Juli","August","September","Oktober","November","Dezember"];
 const wocheTagen = ["Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"];
-const tagesInCalender = document.querySelectorAll("tr.tagesNummer >td")
-//-----------------------------RENDER-----------------------------------------------
 
+//-----------------------------RENDER-----------------------------------------------
 renderWocheTagen()
 renderKalenderTagen()
 function renderText(){
@@ -111,9 +110,7 @@ function changeToPreviousMonth(){
 }
 
 // // Tages in Kalender wird dynamisch
-// function changeDayInCalender (){
-//     let dayInMonth = document.getElementById("daysInMonth");
-//     dayInMonth.innerHTML = ""; // ist Wichtig weil dann In Kalender leer und beim wechsel des Monat nicht überschreibt  
+
     
 //     let firstDayMonth = new Date (year, month, 1).getDay();
 //     let lastDays = new Date (year, month + 1,0).getDate();
@@ -140,6 +137,8 @@ function changeToPreviousMonth(){
 
 function renderKalender(){
     renderKalenderHeader();
+    renderWocheTagen();
+    renderKalenderTagen();
 }
 
 function renderKalenderHeader(){
@@ -151,20 +150,72 @@ function renderKalenderHeader(){
 }
 
 function renderWocheTagen(){
-  let weekdays = document.getElementById("weekDays");
-  for (let i = 0; i< wocheTagen.length; i++){
-      console.log (wocheTagen[i]);
+  let weekdays = document.getElementById("week");
+  weekdays.innerHTML = "";
+  for (let i = 0; i < wocheTagen.length; i++){
+      let th = document.createElement("th");
+      th.innerHTML = wocheTagen[i];
+      weekdays.appendChild(th);
   }
 }
 
 
 
 function renderKalenderTagen(){
-   let tages = document.querySelectorAll("tr.tagesInCalender >td");
-   for (let i = 0; i<= tagesInCalender.length ;i++){
-    console.log(tagesInCalender)
-   }
+    let dayInMonth = document.getElementById("dayInMonth");
+    dayInMonth.innerHTML = "";
+
+    let year = currentDate.getFullYear();
+    let month = currentDate.getMonth();
+
+    let firstDayOfMonth = new Date(year, month, 1);
+    let lastDayOfMonth = new Date(year, month + 1, 0);
+    let lastDate = lastDayOfMonth.getDate();
+
+    // Find the day of the week for the first day (0=Sunday, 1=Monday, etc.)
+    let firstDayWeek = firstDayOfMonth.getDay();
+    // Adjust for Monday start: if Sunday (0), make it 7
+    if (firstDayWeek === 0) firstDayWeek = 7;
+
+    let date = 1;
+    let row;
+
+    for (let i = 0; i < 6; i++) { // Up to 6 weeks
+        row = document.createElement("tr");
+
+        for (let j = 0; j < 7; j++) {
+            let cell = document.createElement("td");
+            if (i === 0 && j < firstDayWeek - 1) {
+                // Empty cells before the first day
+                cell.innerHTML = "";
+            } else if (date > lastDate) {
+                // Empty cells after the last day
+                cell.innerHTML = "";
+            } else {
+                cell.innerHTML = date;
+                if (date === currentDate.getDate() && month === currentDate.getMonth() && year === currentDate.getFullYear()) {
+                    cell.classList.add("today"); // Optional: highlight today
+                }
+                date++;
+            }
+            row.appendChild(cell);
+        }
+
+        dayInMonth.appendChild(row);
+
+        if (date > lastDate) break; // Stop if all days are rendered
+    }
 }
+
+    
+
+
+
+
+
+
+
+
 // let numero = ("dias del mes");
 // for (let i = 1; i < 31 ; i++);
  
@@ -208,4 +259,3 @@ renderPage();
 // let month = date.getMonth()
 // let day = date.getDate();
 // let year=date.getFullYear(); 
- 
