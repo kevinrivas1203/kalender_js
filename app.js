@@ -22,6 +22,7 @@ function renderPage(){
     renderKalenderTitel();
     renderText();
     renderKalender();
+    renderHistoryEreignisse();
 }
 
 
